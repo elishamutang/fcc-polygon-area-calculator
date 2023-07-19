@@ -24,20 +24,14 @@ class Rectangle:
     
     def get_picture(self):
         lines = []
-        for j in range(0, self.height, 1):
-            if j <= self.height+1:
-                line += "\n"
-            else:
-                pass
-
-            for i in range(0, self.width, 1):
-                if i <= self.width+1:
-                    line += "*"
-                else:
-                    line += " "
-        lines.append(line)
-
-        return lines
+        if self.width > 50 or self.height > 50:
+            return "Too big for picture."
+        else:
+            for i in range(0, self.height, 1):
+                line = "*" * self.width
+                lines.append(line)
+        return "\n".join(lines)
+                        
 
     def get_amount_inside(self, shape):
         pass
