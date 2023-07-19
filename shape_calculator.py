@@ -30,9 +30,40 @@ class Rectangle:
             for i in range(0, self.height, 1):
                 line = "*" * self.width
                 lines.append(line)
-        return "\n".join(lines)
+            return "\n".join(lines)
                         
 
     def get_amount_inside(self, shape):
-        pass
+        self.shape = shape #Polygon object
+        amt_inside = 0
+        if self.get_area() >= shape.get_area():
+            amt_inside = self.get_area() // shape.get_area() # // rounds down the value from 8.0 to 8
+            return amt_inside
+        else:
+            return "Not enough"
     
+    def __repr__(self) -> str:
+        """Return a string representation of the object"""
+        return f"Rectangle(width={self.width}, height={self.height})"
+        
+        
+        
+
+class Square(Rectangle):
+
+    def __init__(self, side_length):
+        self.side_length = side_length
+        self.width = side_length
+        self.height = side_length
+    
+    def set_side(self, side):
+        self.side = side
+        self.width = side
+        self.height = side
+        if self.set_width is True or self.set_height is True:
+            self.set_width = side
+            self.set_height = side
+        return side
+    
+    def __repr__(self) -> str:
+        return f"Square(side={self.side})"
