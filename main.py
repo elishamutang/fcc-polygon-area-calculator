@@ -13,7 +13,7 @@ sq.set_side(2)
 print(sq.get_diagonal())
 print(sq)
 print(sq.get_picture())
-print(sq)
+print(str(sq))
 
 rect.set_height(3)
 rect.set_width(7)
