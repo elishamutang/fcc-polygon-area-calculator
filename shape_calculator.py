@@ -23,14 +23,14 @@ class Rectangle:
         return ((self.width ** 2 + self.height **2) ** .5)
     
     def get_picture(self):
-        lines = []
+        lines = ""
         if self.width > 50 or self.height > 50:
             return "Too big for picture."
         else:
             for i in range(0, self.height, 1):
-                line = "*" * self.width
-                lines.append(line)
-            return "\n".join(lines)
+                line = "*" * self.width + "\n"
+                lines += line
+            return lines
                         
 
     def get_amount_inside(self, shape):
@@ -55,15 +55,19 @@ class Square(Rectangle):
         self.side_length = side_length
         self.width = side_length
         self.height = side_length
-    
+
     def set_side(self, side):
         self.side = side
         self.width = side
         self.height = side
-        if self.set_width is True or self.set_height is True:
-            self.set_width = side
-            self.set_height = side
-        return side
+    
+    def set_width(self, sq_width):
+        self.width = sq_width
+        self.height = sq_width
+
+    def set_height(self, sq_height):
+        self.width = sq_height
+        self.height = sq_height
     
     def __repr__(self) -> str:
-        return f"Square(side={self.side})"
+        return f"Square(side={self.width})"
